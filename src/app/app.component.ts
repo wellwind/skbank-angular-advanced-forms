@@ -15,7 +15,11 @@ export class AppComponent {
         filter(e => e instanceof NavigationEnd)
       )
       .forEach(e => {
-        this.title = route.root.firstChild.snapshot.data['title'];
+        if (route.root.firstChild.firstChild) {
+          this.title = route.root.firstChild.firstChild.snapshot.data['title'];
+        } else{
+          this.title = route.root.firstChild.snapshot.data['title'];
+        }
     });
   }
 }

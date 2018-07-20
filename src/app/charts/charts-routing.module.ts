@@ -6,11 +6,13 @@ import { MorrisComponent } from './morris/morris.component';
 const routes: Routes = [
   {
     path: 'flot',
-    component: FlotComponent
+    component: FlotComponent,
+    data: { title: 'Flot' }
   },
   {
     path: 'morris',
-    component: MorrisComponent
+    component: MorrisComponent,
+    data: { title: 'Morris' }
   }
 ];
 
