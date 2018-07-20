@@ -1,4 +1,6 @@
-# Ng6advnaced
+# SB Admin 2 - Bootstrap Admin Theme (Angular 6)
+
+This project is a ready made **SB Admin 2** theme for Angular 6.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
