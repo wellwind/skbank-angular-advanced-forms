@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsComponent } from './forms/forms.component';
+import { ButtonsComponent } from './buttons/buttons.component';
+import { TablesComponent } from './tables/tables.component';
+import { BlankComponent } from './blank/blank.component';
 
 const routes: Routes = [
   {
@@ -13,6 +16,21 @@ const routes: Routes = [
     path: 'forms',
     component: FormsComponent,
     data: { title: 'Forms' }
+  },
+  {
+    path: 'buttons',
+    component: ButtonsComponent,
+    data: { title: 'Buttons' }
+  },
+  {
+    path: 'tables',
+    component: TablesComponent,
+    data: { title: 'Tables' }
+  },
+  {
+    path: 'blank',
+    component: BlankComponent,
+    data: { title: 'Blank' }
   }
 ];
 
