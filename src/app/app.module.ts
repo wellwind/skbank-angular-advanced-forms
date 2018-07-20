@@ -8,6 +8,8 @@ import { NavComponent } from './nav/nav.component';
 import { FormsComponent } from './forms/forms.component';
 import { BlankComponent } from './blank/blank.component';
 import { TablesComponent } from './tables/tables.component';
+import { LayoutComponent } from './layout/layout.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { TablesComponent } from './tables/tables.component';
     NavComponent,
     FormsComponent,
     BlankComponent,
-    TablesComponent
+    TablesComponent,
+    LayoutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
