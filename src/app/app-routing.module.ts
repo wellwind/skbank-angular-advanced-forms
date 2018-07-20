@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsComponent } from './forms/forms.component';
-import { ButtonsComponent } from './buttons/buttons.component';
 import { TablesComponent } from './tables/tables.component';
 import { BlankComponent } from './blank/blank.component';
 
@@ -18,11 +17,6 @@ const routes: Routes = [
     data: { title: 'Forms' }
   },
   {
-    path: 'buttons',
-    component: ButtonsComponent,
-    data: { title: 'Buttons' }
-  },
-  {
     path: 'tables',
     component: TablesComponent,
     data: { title: 'Tables' }
@@ -35,6 +29,10 @@ const routes: Routes = [
   {
     path: 'charts',
     loadChildren: './charts/charts.module#ChartsModule'
+  },
+  {
+    path: 'ui-elements',
+    loadChildren: './ui-elements/ui-elements.module#UiElementsModule'
   }
 ];
 
