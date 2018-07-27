@@ -13,7 +13,7 @@ import { debounceTime, switchMap } from 'rxjs/operators';
 export class FormsComponent implements OnInit {
   @ViewChild('mText') mText: NgModel;
   @ViewChild('form') form: NgForm;
-  text = '';
+  name = '';
   age = 18;
   isUserNameExist = false;
   constructor(private httpClient: HttpClient) {}
@@ -41,5 +41,9 @@ export class FormsComponent implements OnInit {
     // this.mText.subscribe(status => {
     //   console.log(status);
     // });
+  }
+
+  submitForm(formData) {
+    console.log(formData);
   }
 }

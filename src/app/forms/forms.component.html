@@ -7,14 +7,14 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-lg-6">
-            <form role="form" #form="ngForm">
+            <form role="form" #form="ngForm" (ngSubmit)="submitForm(form)">
               {{ form.valid }}
               <div class="form-group">
                 <label>Text Input</label>
-                <input name="text" class="form-control"
+                <input name="username" class="form-control"
                   required
                   minlength="3"
-                  [(ngModel)]="text"
+                  [(ngModel)]="name"
                   #mText="ngModel">
                 <p class="help-block">Example block-level help text here.</p>
                 <div *ngIf="mText.touched && mText.invalid">
