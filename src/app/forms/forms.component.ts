@@ -43,7 +43,10 @@ export class FormsComponent implements OnInit {
     // });
   }
 
-  submitForm(formData) {
+  submitForm(formData: NgForm) {
+    if(!formData.submitted && formData.valid) {
+      // 處理後端資料
+    }
     console.log(formData);
   }
 }
