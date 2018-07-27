@@ -11,10 +11,20 @@
               <div class="form-group">
                 <label>Text Input</label>
                 <input name="text" class="form-control"
+                  required
                   minlength="3"
                   [(ngModel)]="text"
-                  #mText>
+                  #mText="ngModel">
                 <p class="help-block">Example block-level help text here.</p>
+                <div *ngIf="mText.invalid">
+                  <div *ngIf="mText.errors['required']">
+                    請輸入內容
+                  </div>
+                  <div *ngIf="mText.errors['minlength']">
+                    最少輸入 {{ mText.errors['minlength']['requiredLength'] }} 個字，目前已輸入 {{ mText.errors['minlength']['actualLength'] }}
+                  </div>
+                  <pre>{{ mText.errors | json }}</pre>
+                </div>
               </div>
               <div class="form-group">
                 <label>Text Input with Placeholder</label>
