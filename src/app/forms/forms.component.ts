@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 import { of } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 
@@ -12,13 +12,15 @@ import { debounceTime, switchMap } from 'rxjs/operators';
 })
 export class FormsComponent implements OnInit {
   @ViewChild('mText') mText: NgModel;
-
+  @ViewChild('form') form: NgForm;
   text = '';
+  age = 18;
   isUserNameExist = false;
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit() {
-    console.log(this.mText);
+    // console.log(this.mText);
+    console.log(this.form);
     // this.mText.valueChanges.subscribe(data => {
     //   this.httpClient.get(`https://foo.com/checkUserName/${data}`)
     //     .subscribe((result: boolean) => {
