@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, NgModel } from '@angular/forms';
 import { of } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 
@@ -16,11 +16,22 @@ export class FormsComponent implements OnInit {
   name = '';
   age = 18;
   comment = 'test';
-  
+
   isUserNameExist = false;
-  constructor(private httpClient: HttpClient) {}
+
+  modelForm: FormGroup;
+
+  constructor(private httpClient: HttpClient, private fb: FormBuilder) {
+
+  }
 
   ngOnInit() {
+
+    this.modelForm = this.fb.group({
+      title: this.fb.control('Allen')
+    });
+
+
     // console.log(this.mText);
     console.log(this.form);
     // this.mText.valueChanges.subscribe(data => {
@@ -49,6 +60,6 @@ export class FormsComponent implements OnInit {
     if(!formData.submitted && formData.valid) {
       // 處理後端資料
     }
-    console.log(formData);
+    console.log(formData.value);
   }
 }

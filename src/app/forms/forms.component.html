@@ -24,7 +24,7 @@
                 </div>
               </div>
 
-              <div ngModelGroup="group1" #group1="ngModelGroup">
+              <div ngModelGroup="basicData" #group1="ngModelGroup">
                 <h3>基本資料</h3>
                 <div *ngIf="group1.invalid">基本資料有誤</div>
                 <div class="form-group">
@@ -48,11 +48,11 @@
           <!-- /.col-lg-6 (nested) -->
           <div class="col-lg-6">
             <h1>Disabled Form States</h1>
-            <form role="form">
-              <fieldset disabled>
+            <form role="form" [formGroup]="modelForm">
+              <fieldset>
                 <div class="form-group">
                   <label for="disabledSelect">Disabled input</label>
-                  <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input" disabled>
+                  <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input" formControlName="title">
                 </div>
                 <div class="form-group">
                   <label for="disabledSelect">Disabled select menu</label>
