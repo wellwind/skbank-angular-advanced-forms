@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormGroup, NgForm, NgModel } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormGroup, NgForm, NgModel, Validators } from '@angular/forms';
 import { of } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
-
 
 @Component({
   selector: 'app-forms',
@@ -36,6 +35,10 @@ export class FormsComponent implements OnInit {
     return (this.modelForm.get('interests') as FormArray).controls;
   }
 
+  get formTitle(): AbstractControl {
+    return this.modelForm.get('title');
+  }
+
   constructor(private httpClient: HttpClient, private fb: FormBuilder) {
 
   }
@@ -43,7 +46,7 @@ export class FormsComponent implements OnInit {
   ngOnInit() {
 
     this.modelForm = this.fb.group({
-      title: this.fb.control('Allen'),
+      title: this.fb.control('Allen', [Validators.required, Validators.minLength(3)]),
       info: this.fb.group({
         city: this.fb.control('2'),
         newsletter: this.fb.control(true)

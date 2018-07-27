@@ -80,7 +80,7 @@
                     [formControlName]="index" />
                   </div>
                 </div>
-
+                <pre>{{ formTitle.errors | json }}</pre>
                 <pre>{{ modelForm.value | json }}</pre>
                 <button type="submit" class="btn btn-primary">Disabled Button</button>
               </fieldset>
