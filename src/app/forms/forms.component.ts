@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
+import { of } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
-
-import { of } from '../../../node_modules/rxjs';
 
 
 @Component({
@@ -37,7 +36,7 @@ export class FormsComponent implements OnInit {
       this.isUserNameExist = result;
     });
 
-    // this.mText.statusChanges.subscribe(status => {
+    // this.mText.subscribe(status => {
     //   console.log(status);
     // });
   }
