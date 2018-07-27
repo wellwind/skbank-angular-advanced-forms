@@ -33,7 +33,7 @@
               </div>
 
               <button type="submit" [disabled]="form.invalid" class="btn" [ngClass]="{'btn-default': form.valid, 'btn-danger': form.invalid }" >Submit Button</button>
-              <button type="reset" class="btn btn-default">Reset Button</button>
+              <button type="reset" class="btn btn-{{ form.invalid ? 'danger' : 'default' }}">Reset Button</button>
             </form>
           </div>
           <!-- /.col-lg-6 (nested) -->
