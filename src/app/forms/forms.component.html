@@ -21,7 +21,7 @@
                     請輸入內容
                   </div>
                   <div *ngIf="mText.errors['minlength']">
-                    最少輸入 {{ mText.errors['minlength']['requiredLength'] }} 個字，目前已輸入 {{ mText.errors['minlength']['actualLength'] }}
+                    最少輸入 {{ mText.errors['minlength']['requiredLength'] }} 個字，目前已輸入 {{ mText.errors['minlength']['actualLength'] }} 個字
                   </div>
                   <pre>{{ mText.errors | json }}</pre>
                 </div>
