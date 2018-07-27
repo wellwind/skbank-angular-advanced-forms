@@ -16,7 +16,7 @@
                   [(ngModel)]="text"
                   #mText="ngModel">
                 <p class="help-block">Example block-level help text here.</p>
-                <div *ngIf="mText.invalid">
+                <div *ngIf="mText.touched && mText.invalid">
                   <div *ngIf="mText.errors['required']">
                     請輸入內容
                   </div>

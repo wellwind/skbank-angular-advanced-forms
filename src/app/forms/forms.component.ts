@@ -1,4 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgModel } from '@angular/forms';
+import { debounceTime, switchMap } from 'rxjs/operators';
+
+import { of } from '../../../node_modules/rxjs';
+
 
 @Component({
   selector: 'app-forms',
@@ -6,13 +12,33 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./forms.component.css']
 })
 export class FormsComponent implements OnInit {
-  @ViewChild('mText') mText;
+  @ViewChild('mText') mText: NgModel;
 
-  text = 'test';
-  constructor() {}
+  text = '';
+  isUserNameExist = false;
+  constructor(private httpClient: HttpClient) {}
 
   ngOnInit() {
     console.log(this.mText);
-  }
+    // this.mText.valueChanges.subscribe(data => {
+    //   this.httpClient.get(`https://foo.com/checkUserName/${data}`)
+    //     .subscribe((result: boolean) => {
+    //       this.isUserNameExist = result;
+    //   });
+    // });
 
+    this.mText.valueChanges.pipe(
+      debounceTime(300),
+      switchMap((data) => {
+        console.log(data);
+        return of(true);
+      })
+    ).subscribe((result: boolean) => {
+      this.isUserNameExist = result;
+    });
+
+    // this.mText.statusChanges.subscribe(status => {
+    //   console.log(status);
+    // });
+  }
 }
