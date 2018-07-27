@@ -21,6 +21,17 @@ export class FormsComponent implements OnInit {
 
   modelForm: FormGroup;
 
+  cities = [
+    {
+      id: '1',
+      name: '台北市'
+    },
+    {
+      id: '2',
+      name: '新北市'
+    }
+  ];
+
   constructor(private httpClient: HttpClient, private fb: FormBuilder) {
 
   }
@@ -28,7 +39,8 @@ export class FormsComponent implements OnInit {
   ngOnInit() {
 
     this.modelForm = this.fb.group({
-      title: this.fb.control('Allen')
+      title: this.fb.control('Allen'),
+      value: this.fb.control('2')
     });
 
 
