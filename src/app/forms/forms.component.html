@@ -11,11 +11,7 @@
               {{ form.valid }}
               <div class="form-group">
                 <label>Text Input</label>
-                <input name="username" class="form-control"
-                  required
-                  minlength="3"
-                  [(ngModel)]="name"
-                  #mText="ngModel">
+                <input name="username" class="form-control" required minlength="3" [(ngModel)]="name" #mText="ngModel">
                 <p class="help-block">Example block-level help text here.</p>
                 <div *ngIf="mText.touched && mText.invalid">
                   <div *ngIf="mText.errors['required']">
@@ -27,12 +23,25 @@
                   <pre>{{ mText.errors | json }}</pre>
                 </div>
               </div>
-              <div class="form-group">
-                <label>Text Input with Placeholder</label>
-                <input name="age" class="form-control" placeholder="Enter text" [(ngModel)]="age">
+
+              <div ngModelGroup="group1" #group1="ngModelGroup">
+                <h3>基本資料</h3>
+                <div *ngIf="group1.invalid">基本資料有誤</div>
+                <div class="form-group">
+                  <label>Text Input with Placeholder</label>
+                  <input name="age" class="form-control" placeholder="Enter text" required [(ngModel)]="age">
+                </div>
+                <div class="form-group">
+                  <label>Text Input with Placeholder</label>
+                  <input name="comment" class="form-control" placeholder="Enter text" [(ngModel)]="comment">
+                </div>
               </div>
 
-              <button type="submit" [disabled]="form.invalid || form.submitted" class="btn" [ngClass]="{'btn-default': form.valid, 'btn-danger': form.invalid }" >Submit Button</button>
+              <div>
+                <pre>{{ group1.valid }}</pre>
+              </div>
+
+              <button type="submit" [disabled]="form.invalid || form.submitted" class="btn" [ngClass]="{'btn-default': form.valid, 'btn-danger': form.invalid }">Submit Button</button>
               <button type="reset" class="btn btn-{{ form.invalid ? 'danger' : 'default' }}">Reset Button</button>
             </form>
           </div>

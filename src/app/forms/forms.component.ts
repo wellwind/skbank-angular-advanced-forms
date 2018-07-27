@@ -15,6 +15,8 @@ export class FormsComponent implements OnInit {
   @ViewChild('form') form: NgForm;
   name = '';
   age = 18;
+  comment = 'test';
+  
   isUserNameExist = false;
   constructor(private httpClient: HttpClient) {}
 
