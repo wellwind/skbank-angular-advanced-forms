@@ -32,7 +32,7 @@
                 <input name="age" class="form-control" placeholder="Enter text" [(ngModel)]="age">
               </div>
 
-              <button type="submit" [disabled]="form.invalid" class="btn btn-default">Submit Button</button>
+              <button type="submit" [disabled]="form.invalid" class="btn" [ngClass]="{'btn-default': form.valid, 'btn-danger': form.invalid }" >Submit Button</button>
               <button type="reset" class="btn btn-default">Reset Button</button>
             </form>
           </div>
