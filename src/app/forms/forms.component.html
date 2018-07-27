@@ -54,21 +54,24 @@
                   <label for="disabledSelect">Disabled input</label>
                   <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input" formControlName="title">
                 </div>
-                <div class="form-group">
-                  <label for="disabledSelect">Disabled select menu</label>
-                  <select id="disabledSelect" class="form-control" formControlName="value">
-                    <option [value]="city.id" *ngFor="let city of cities">
-                      {{ city.name }}
-                    </option>
-                  </select>
 
+                <div formGroupName="info">
+                  <div class="form-group">
+                    <label for="disabledSelect">Disabled select menu</label>
+                    <select id="disabledSelect" class="form-control" formControlName="city">
+                      <option [value]="city.id" *ngFor="let city of cities">
+                        {{ city.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" formControlName="newsletter">Newsletter
+                    </label>
+                  </div>
+                </div>
 
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox">Disabled Checkbox
-                  </label>
-                </div>
+                <pre>{{ modelForm.value | json }}</pre>
                 <button type="submit" class="btn btn-primary">Disabled Button</button>
               </fieldset>
             </form>

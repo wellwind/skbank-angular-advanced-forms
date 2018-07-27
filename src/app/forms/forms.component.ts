@@ -40,7 +40,10 @@ export class FormsComponent implements OnInit {
 
     this.modelForm = this.fb.group({
       title: this.fb.control('Allen'),
-      value: this.fb.control('2')
+      info: this.fb.group({
+        city: this.fb.control('2'),
+        newsletter: this.fb.control(true)
+      })
     });
 
 
