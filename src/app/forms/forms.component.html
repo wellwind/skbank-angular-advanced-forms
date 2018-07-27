@@ -10,7 +10,10 @@
             <form role="form">
               <div class="form-group">
                 <label>Text Input</label>
-                <input class="form-control">
+                <input name="text" class="form-control"
+                  minlength="3"
+                  [(ngModel)]="text"
+                  #mText>
                 <p class="help-block">Example block-level help text here.</p>
               </div>
               <div class="form-group">

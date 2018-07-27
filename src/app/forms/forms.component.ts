@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-forms',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forms.component.css']
 })
 export class FormsComponent implements OnInit {
+  @ViewChild('mText') mText;
 
-  constructor() { }
+  text = 'test';
+  constructor() {}
 
   ngOnInit() {
+    console.log(this.mText);
   }
 
 }
