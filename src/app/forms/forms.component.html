@@ -66,8 +66,18 @@
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" formControlName="newsletter">Newsletter
+                      <input type="checkbox" formControlName="newsletter"> => info["newsletter"]
+                      Newsletter
                     </label>
+                  </div>
+                </div>
+
+                <h3>興趣</h3>
+                <div>
+                  <div formArrayName="interests">
+                  <input class="form-control"
+                    *ngFor="let interest of interests; let index=index"
+                    [formControlName]="index" />
                   </div>
                 </div>
 

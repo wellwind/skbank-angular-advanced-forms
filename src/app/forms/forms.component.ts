@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, NgModel } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormGroup, NgForm, NgModel } from '@angular/forms';
 import { of } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 
@@ -32,6 +32,10 @@ export class FormsComponent implements OnInit {
     }
   ];
 
+  get interests(): AbstractControl[] {
+    return (this.modelForm.get('interests') as FormArray).controls;
+  }
+
   constructor(private httpClient: HttpClient, private fb: FormBuilder) {
 
   }
@@ -43,9 +47,15 @@ export class FormsComponent implements OnInit {
       info: this.fb.group({
         city: this.fb.control('2'),
         newsletter: this.fb.control(true)
-      })
+      }),
+      interests: this.fb.array(
+        [
+          this.fb.control('Baseball'),
+          this.fb.control('Basketball'),
+          this.fb.control('test'),
+        ]
+      )
     });
-
 
     // console.log(this.mText);
     console.log(this.form);
